@@ -21,7 +21,7 @@ public class Poisson{
     }
 
     public static RealMatrix calcMatrix(Double homeavg, Double awayavg) {
-        RealMatrix mtx = new Array2DRowRealMatrix(10, 10);
+        RealMatrix mtx = new Array2DRowRealMatrix(n, n);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 Double hprob = poissonCalc(homeavg, i);
