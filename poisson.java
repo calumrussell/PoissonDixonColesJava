@@ -8,13 +8,15 @@ public class Poisson{
         return (Math.pow(mean, val) * Math.pow(Math.E, -mean)) / ArithmeticUtils.factorial(val);
     }
 
-    public static Double dixonColesMultiplier(int home, int away, Double homeavg, Double awayavg) {
+    private Double dixonColesMultiplier(int home, int away, Double homeavg, Double awayavg) {
         if (home == 0 && away == 0) {
             return 1.0 - (homeavg * awayavg * rho);
-        } else if (home == 0 && away == 1) {
+        } else if (home == 1 && away == 0) {
             return 1.0 + (homeavg * rho);
+        } else if (home == 0 && away == 1) {
+            return 1.0 + (awayavg * rho);
         } else if (home == 1 && away == 1) {
-            return 1.0 * rho;
+            return 1.0 - rho;
         } else {
             return 1.0;
         }
